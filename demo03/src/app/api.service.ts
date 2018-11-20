@@ -1,14 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as socketIo from 'socket.io-client';
+import { Observer } from 'rxjs';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  observer: Observer<any>;
 
   getHoteles() {
-    return this.http.get('http://localhost:5000/api/hoteles');
+    const socket = socketIo('http://localhost:5000/api/hoteles');
+    socket.on('data', response => {
+      return this.observer.next(response.data);
+    });
+    return this.createObservable();
   }
+
+  createObservable() {
+    return new Observable(observer => this.observer = observer);
+  }
+
 }
