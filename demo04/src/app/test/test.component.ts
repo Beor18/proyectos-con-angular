@@ -5,11 +5,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent implements OnInit {
+export class TestComponent {
 
-  constructor() { }
+  isOn = false;
+  
+  get message() {
+    return `El test es ${this.isOn ? 'On' : 'Off'}`;
+  }
 
-  ngOnInit() {
+  clicked() {
+    this.isOn = !this.isOn;
   }
 
 }
