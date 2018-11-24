@@ -12,7 +12,7 @@ import { switchMap } from 'rxjs/operators';
 })
 
 export class AppComponent implements OnInit {
-  hotels: any;
+  responses: any;
   constructor(private api: ApiService) { }
 
   ngOnInit() {
@@ -20,7 +20,10 @@ export class AppComponent implements OnInit {
   }
 
   getHotels() {
-    this.api.getHoteles().subscribe(hotels => this.hotels = hotels['hotels']);
+    this.api.getHoteles().subscribe((response) => {
+      this.responses = response;
+      console.log(this.responses);
+    });
 }
 
 }
