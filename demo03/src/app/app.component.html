@@ -3,4 +3,6 @@
 <h5 style="text-align:center;">By fernando López</h5>
 <p style="text-align:center;">Hay registrado: <strong>{{ responses }} </strong> Hoteles en la base de datos.</p>
 
+<p *ngFor="let h of respuesta">{{h.name}}</p>
+
 <router-outlet></router-outlet>

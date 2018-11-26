@@ -14,9 +14,16 @@ export class ApiService {
 
   getHoteles() {
     return Observable.create((observer) => {
-      // tslint:disable-next-line:quotemark
-      this.socket.on("FromAPI", (response) => {
+      this.socket.on('FromAPI', (response) => {
         observer.next(response);
+      });
+    });
+  }
+
+  getUltimoHotel() {
+    return Observable.create((observer) => {
+      this.socket.on('FromHotel', (respuesta) => {
+        observer.next(respuesta);
       });
     });
   }

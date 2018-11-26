@@ -13,10 +13,12 @@ import { switchMap } from 'rxjs/operators';
 
 export class AppComponent implements OnInit {
   responses: any;
+  respuesta = [];
   constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.getHotels();
+    this.getUltimoHotel();
   }
 
   getHotels() {
@@ -24,6 +26,13 @@ export class AppComponent implements OnInit {
       this.responses = response;
       console.log(this.responses);
     });
-}
+  }
+
+  getUltimoHotel() {
+    this.api.getUltimoHotel().subscribe((respuesta) => {
+      this.respuesta = respuesta;
+      console.log(this.respuesta);
+    });
+  }
 
 }
