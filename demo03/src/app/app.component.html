@@ -1,8 +1,37 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <h2 style="text-align:center;">Test with Socket.IO - ANGULAR 7 </h2>
 <h5 style="text-align:center;">By fernando López</h5>
-<p style="text-align:center;">Hay registrado: <strong>{{ responses }} </strong> Hoteles en la base de datos.</p>
 
-<p *ngFor="let h of respuesta">{{h.name}}</p>
+<div class="p-grid" style="margin-bottom:20px;">
+    <div class="p-col-12 p-md-6 p-lg-4">
 
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+
+    </div>
+</div>
+
+<div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <p-panel header="HAY REGISTRADO:">
+            <h3 style="text-align:center; padding-bottom:21px;">
+                <strong style="font-size:30px;">{{ responses }} </strong> <br>Hoteles en la base de datos.
+            </h3>
+        </p-panel>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <p-panel header="ÚLTIMOS REGISTROS">
+            <p *ngFor="let h of respuesta" style=" padding-bottom:3px;">{{h.name}}</p>
+        </p-panel>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-4">
+        <p-panel header="GRÁFICOS">
+
+            <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+        </p-panel>
+    </div>
+</div>
 <router-outlet></router-outlet>

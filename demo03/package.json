@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~7.0.0",
+    "@angular/animations": "^7.0.4",
     "@angular/common": "~7.0.0",
     "@angular/compiler": "~7.0.0",
     "@angular/core": "~7.0.0",
@@ -21,7 +21,11 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@types/socket.io-client": "^1.4.32",
+    "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
+    "primeflex": "^1.0.0-rc.1",
+    "primeicons": "^1.0.0",
+    "primeng": "^6.1.7",
     "rxjs": "~6.3.3",
     "socket.io-client": "^2.1.1",
     "zone.js": "~0.8.26"
