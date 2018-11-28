@@ -28,4 +28,20 @@ export class ApiService {
     });
   }
 
+  getMemDisponible() {
+    return Observable.create((observer) => {
+      this.socket.on('memDisponible', (memDisponible) => {
+        observer.next(memDisponible);
+      });
+    });
+  }
+
+  getMemBuffered() {
+    return Observable.create((observer) => {
+      this.socket.on('memBuffered', (memBuffered) => {
+        observer.next(memBuffered);
+      });
+    });
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 
@@ -11,43 +11,49 @@ import { Observable } from 'rxjs';
 export class AppComponent implements OnInit {
   responses: any;
   data: any;
+  memoriaDisponible: any;
   respuesta = [];
   constructor(private api: ApiService) {
-    this.data = {
-      labels: ['Enero', 'Febrero', 'Marzo', 'April', 'Mayo', 'Junio', 'Julio'],
-      datasets: [
-          {
-              label: 'Primer dataset',
-              data: [65, 59, 80, 81, 56, 55, 40],
-              fill: false,
-              borderColor: '#4bc0c0'
-          },
-          {
-              label: 'Segundo dataset',
-              data: [28, 48, 40, 19, 86, 27, 90],
-              fill: false,
-              borderColor: '#565656'
-          }
-      ]
-    };
+    this.getChart();
   }
 
   ngOnInit() {
     this.getHotels();
     this.getUltimoHotel();
+    this.getMemoryDisponible();
   }
 
   getHotels() {
     this.api.getHoteles().subscribe((response) => {
       this.responses = response;
-      console.log(this.responses);
     });
   }
 
   getUltimoHotel() {
     this.api.getUltimoHotel().subscribe((respuesta) => {
       this.respuesta = respuesta;
-      console.log(this.respuesta);
+    });
+  }
+
+  getMemoryDisponible() {
+    this.api.getMemDisponible().subscribe((memoriaDisponible) => {
+      this.memoriaDisponible = memoriaDisponible;
+    });
+  }
+
+  getChart() {
+    this.api.getMemBuffered().subscribe((memBuffere) => {
+      this.data = {
+        labels: ['Disponible en Kb', 'Memoria Buffered'],
+        datasets: [
+            {
+                label: 'Primer dataset',
+                data: [this.memoriaDisponible, memBuffere ],
+                fill: false,
+                borderColor: '#4bc0c0'
+            }
+        ]
+      };
     });
   }
 
