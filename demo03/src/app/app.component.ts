@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
   getChart() {
     this.api.getMemBuffered().subscribe((memBuffere) => {
       this.data = {
-        labels: ['Disponible en Kb', 'Memoria Buffered'],
+        labels: ['Disponible en KiB', 'Memoria Buffered'],
         datasets: [
             {
                 label: 'Primer dataset',
