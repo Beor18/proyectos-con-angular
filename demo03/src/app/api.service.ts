@@ -5,7 +5,7 @@ import { Observer, Observable } from 'rxjs';
 @Injectable()
 export class ApiService {
 
-  private url = 'https://almundo-examen.herokuapp.com';
+  private url = 'http://localhost:5000';
   private socket;
 
   constructor() {

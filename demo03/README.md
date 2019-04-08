@@ -6,4 +6,4 @@ Practica de realtime data con Angular + Socket.io + Nodejs (backend)
 
 # Demo:
 
-![Imgur](https://i.imgur.com/ey0G9c8.png)
+![Imgur](https://i.imgur.com/nhcyO59.png)
