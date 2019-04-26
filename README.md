@@ -7,3 +7,5 @@
 - [Demo03](https://github.com/Beor18/proyectos-con-angular/tree/master/demo03) - Realtime data con Angular + Socket.io + Nodejs (backend)
 
 - [Demo04](https://github.com/Beor18/proyectos-con-angular/tree/master/demo04) - Testing  componentes básicos con Angular Testing Framework
+
+- [Demo05](https://github.com/Beor18/proyectos-con-angular/tree/master/demo05) - GraphQL con Angular
